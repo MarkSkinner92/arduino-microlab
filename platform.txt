@@ -19,8 +19,8 @@
 # For more info:
 # https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5---3rd-party-Hardware-specification
 
-name=Raspberry Pi RP2040/RP2350 Boards
-version=5.5.0
+name=ISS300
+version=1.0.0
 
 # Required discoveries and monitors
 # ---------------------------------
@@ -28,14 +28,14 @@ pluggable_discovery.required.0=builtin:serial-discovery
 pluggable_discovery.required.1=builtin:mdns-discovery
 pluggable_monitor.required.serial=builtin:serial-monitor
 
-runtime.tools.pqt-gcc.path={runtime.platform.path}/system/arm-none-eabi
-runtime.tools.pqt-gcc-riscv.path={runtime.platform.path}/system/riscv32-unknown-elf
-runtime.tools.pqt-python3.path={runtime.platform.path}/system/python3
-runtime.tools.pqt-mklittlefs.path={runtime.platform.path}/system/mklittlefs
-runtime.tools.pqt-pioasm.path={runtime.platform.path}/system/pioasm
-runtime.tools.pqt-elf2uf2.path={runtime.platform.path}/system/elf2uf2
-runtime.tools.pqt-openocd.path={runtime.platform.path}/system/openocd
-runtime.tools.pqt-picotool.path={runtime.platform.path}/system/picotool
+
+
+
+
+
+
+
+
 compiler.path={runtime.tools.{build.toolchainpkg}.path}/bin/
 
 compiler.libraries.ldflags=
@@ -118,10 +118,10 @@ build.variantdefines=
 build.sdfatdefines=-DFILE_COPY_CONSTRUCTOR_SELECT=FILE_COPY_CONSTRUCTOR_PUBLIC -DUSE_UTF8_LONG_NAMES=1 -DDISABLE_FS_H_WARNING=1
 
 # Allow Pico boards to be auto-discovered by the IDE
-#discovery.rp2040.pattern={runtime.tools.pqt-python3.path}/python3 -I "{runtime.platform.path}/tools/pluggable_discovery.py"
-discovery.rp2040.pattern={runtime.platform.path}/system/python3/python3 -I "{runtime.platform.path}/tools/pluggable_discovery.py"
-#pluggable_discovery.rp2040.pattern="{runtime.tools.pqt-python3.path}/python3" -I "{runtime.platform.path}/tools/pluggable_discovery.py"
-pluggable_discovery.rp2040.pattern="{runtime.platform.path}/system/python3/python3" -I "{runtime.platform.path}/tools/pluggable_discovery.py"
+discovery.rp2040.pattern={runtime.tools.pqt-python3.path}/python3 -I "{runtime.platform.path}/tools/pluggable_discovery.py"
+
+pluggable_discovery.rp2040.pattern="{runtime.tools.pqt-python3.path}/python3" -I "{runtime.platform.path}/tools/pluggable_discovery.py"
+
 
 
 # Compile patterns
@@ -183,39 +183,24 @@ debug.server.openocd.path={runtime.tools.pqt-openocd.path}/bin/openocd
 debug.server.openocd.scripts_dir={runtime.tools.pqt-openocd.path}/share/openocd/scripts/
 debug.server.openocd.script={runtime.platform.path}/lib/{build.chip}/{build.debugscript}
 
-
+### Uploaders
 
 tools.uf2conv.path=
 # Because the variable expansion doesn't allow one tool to find another, the following lines
 # will point to "{runtime.platform.path}/tools/python3/python3" in GIT and
 # "{runtime.tools.pqt-python3.path}/python3" for JSON board manager releases.
-#tools.uf2conv.cmd={runtime.tools.pqt-python3.path}/python3
-#tools.uf2conv.network_cmd={runtime.tools.pqt-python3.path}/python3
-tools.uf2conv.cmd={runtime.platform.path}/system/python3/python3
-tools.uf2conv.network_cmd={runtime.platform.path}/system/python3/python3
-tools.uf2conv.upload.protocol=uf2
-tools.uf2conv.upload.params.verbose=
-tools.uf2conv.upload.params.quiet=
-tools.uf2conv.upload.pattern="{cmd}" -I "{runtime.platform.path}/tools/uf2conv.py" --serial "{serial.port}" --family RP2040 --deploy "{build.path}/{build.project_name}.uf2"
-tools.uf2conv.upload.network_pattern="{network_cmd}" -I "{runtime.platform.path}/tools/espota.py" -i "{serial.port}" -p "{network.port}" "--auth={network.password}" -f "{build.path}/{build.project_name}.bin"
+tools.uf2conv.cmd={runtime.tools.pqt-python3.path}/python3
+tools.uf2conv.network_cmd={runtime.tools.pqt-python3.path}/python3
 
-#tools.uf2conv-network.cmd={runtime.tools.pqt-python3.path}/python3
-tools.uf2conv-network.cmd={runtime.platform.path}/system/python3/python3
-tools.uf2conv-network.upload.protocol=uf2
-tools.uf2conv-network.upload.params.verbose=
-tools.uf2conv-network.upload.params.quiet=
-tools.uf2conv-network.upload.field.password=Password
-tools.uf2conv-network.upload.pattern="{cmd}" -I "{runtime.platform.path}/tools/espota.py" -i "{upload.port.address}" -p "{upload.port.properties.port}" "--auth={upload.field.password}" -f "{build.path}/{build.project_name}.bin"
+tools.netuploader.cmd={runtime.tools.pqt-python3.path}/python3
+tools.netuploader.script_path={runtime.platform.path}/wifi-uploader.py
+tools.netuploader.upload.protocol=picotool
+tools.netuploader.upload.params.verbose=
+tools.netuploader.upload.params.quiet=
+tools.netuploader.upload.pattern="{cmd}" "{tools.netuploader.script_path}" "{build.path}/sketch/identity.h" "{build.path}/{build.project_name}.bin" "{upload.location}"
 
-#tools.picotool.cmd={runtime.tools.pqt-picotool.path}
-tools.picotool.cmd={runtime.platform.path}/system/picotool
-tools.picotool.upload.protocol=picotool
-tools.picotool.upload.params.verbose=
-tools.picotool.upload.params.quiet=
-tools.picotool.upload.pattern="{cmd}/picotool" load "{build.path}/{build.project_name}.uf2" -f -x
+tools.picoprobe_cmsis_dap.cmd={runtime.tools.pqt-openocd.path}
 
-#tools.picoprobe_cmsis_dap.cmd={runtime.tools.pqt-openocd.path}
-tools.picoprobe_cmsis_dap.cmd={runtime.platform.path}/system/openocd
 tools.picoprobe_cmsis_dap.upload.protocol=picoprobe_cmsis_dap
 tools.picoprobe_cmsis_dap.upload.params.verbose=
 tools.picoprobe_cmsis_dap.upload.params.quiet=
