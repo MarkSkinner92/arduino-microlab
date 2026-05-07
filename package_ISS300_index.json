@@ -21,37 +21,37 @@
           ],
           "toolsDependencies": [
             {
-              "packager": "rp2040",
+              "packager": "ISS300",
               "version": "4.1.0-1aec55e",
               "name": "pqt-gcc"
             },
             {
-              "packager": "rp2040",
+              "packager": "ISS300",
               "version": "4.1.0-1aec55e",
               "name": "pqt-gcc-riscv"
             },
             {
-              "packager": "rp2040",
+              "packager": "ISS300",
               "version": "4.1.0-1aec55e",
               "name": "pqt-mklittlefs"
             },
             {
-              "packager": "rp2040",
+              "packager": "ISS300",
               "version": "4.1.0-1aec55e",
               "name": "pqt-pioasm"
             },
             {
-              "packager": "rp2040",
+              "packager": "ISS300",
               "version": "1.0.1-base-3a57aed-1",
               "name": "pqt-python3"
             },
             {
-              "packager": "rp2040",
+              "packager": "ISS300",
               "version": "4.1.0-1aec55e",
               "name": "pqt-openocd"
             },
             {
-              "packager": "rp2040",
+              "packager": "ISS300",
               "version": "4.1.0-1aec55e",
               "name": "pqt-picotool"
             }
