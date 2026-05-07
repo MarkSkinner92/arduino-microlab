@@ -11,7 +11,7 @@
       "platforms": [
                 {
           "category": "Raspberry Pi Pico",
-          "name": "Raspberry Pi Pico/RP2040/RP2350",
+          "name": "ISS300",
           "url": "https://github.com/MarkSkinner92/arduino-microlab/releases/download/1.0.0/microlab-1.0.0.zip",
           "version": "1.0.0",
           "architecture": "rp2040",
