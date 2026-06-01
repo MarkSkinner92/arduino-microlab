@@ -54,14 +54,13 @@ microlab_rp2350.menu.microlabupload.picoprobe_cmsis_dap.upload.tool=picoprobe_cm
 microlab_rp2350.menu.microlabupload.picoprobe_cmsis_dap.upload.tool.default=picoprobe_cmsis_dap
 
 # Updated Server Location Menu
-microlab_rp2350.menu.serverlocation.localserver=Local Server
-# Add a build flag to make the IDE 'see' this as a functional selection
-microlab_rp2350.menu.serverlocation.localserver.build.server_loc=-DSERVER_LOCAL
-microlab_rp2350.menu.serverlocation.localserver.upload.location=local
-
 microlab_rp2350.menu.serverlocation.onlineserver=Online Server
 microlab_rp2350.menu.serverlocation.onlineserver.build.server_loc=-DSERVER_ONLINE
 microlab_rp2350.menu.serverlocation.onlineserver.upload.location=online
+
+microlab_rp2350.menu.serverlocation.localserver=Local Server
+microlab_rp2350.menu.serverlocation.localserver.build.server_loc=-DSERVER_LOCAL
+microlab_rp2350.menu.serverlocation.localserver.upload.location=local
 
 microlab_rp2350.build.ram_length=512k
 microlab_rp2350.build.debugscript=picoprobe_cmsis_dap.tcl

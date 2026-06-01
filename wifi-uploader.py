@@ -10,8 +10,8 @@ from urllib.error import HTTPError, URLError
 # ─── Configuration ────────────────────────────────────────────────────────────
 
 API_BASE_URL_LOCAL = "http://localhost:3000/api/upload-program"
-API_BASE_URL_ONLINE = "http://64.23.205.67:3000/api/upload-program"
-PUBLIC_API_KEY = "your_api_key_here"
+API_BASE_URL_ONLINE = "http://64.23.205.67/api/upload-program"
+PUBLIC_API_KEY = "1380c3b8990964e8"
 
 # ──────────────────────────────────────────────────────────────────────────────
 
