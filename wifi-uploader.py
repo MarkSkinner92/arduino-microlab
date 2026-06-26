@@ -10,8 +10,7 @@ from urllib.error import HTTPError, URLError
 # ─── Configuration ────────────────────────────────────────────────────────────
 
 API_BASE_URL_LOCAL = "http://localhost:3000/api/upload-program"
-API_BASE_URL_ONLINE = "http://64.23.205.67/api/upload-program"
-PUBLIC_API_KEY = "1380c3b8990964e8"
+API_BASE_URL_ONLINE = "https://issresearchlab.com/api/upload-program"
 
 # ──────────────────────────────────────────────────────────────────────────────
 
@@ -88,14 +87,13 @@ def upload_firmware(identity, file_path, server_location):
     ).encode() + file_data + f"\r\n--{boundary}--\r\n".encode()
 
     req = Request(url, data=body)
-    req.add_header("x-api-key", PUBLIC_API_KEY)
     req.add_header("x-upload-password", identity['UPLOAD_PASSWORD'])
     req.add_header("Content-Type", f"multipart/form-data; boundary={boundary}")
 
     try:
         print(f"Uploading {path.name} to {identity['HARDWARE_ID']} using {server_location} server...")
         with urlopen(req) as response:
-            print("Upload successful!")
+            print("Upload to server successful! Watch simulator screen to confirm upload to MicroLab.")
             print(response.read().decode())
 
     except HTTPError as e:

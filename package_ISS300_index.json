@@ -2,7 +2,7 @@
     "packages":  [
                      {
                          "name":  "ISS300",
-                         "maintainer":  "VCS R&D",
+                         "maintainer":  "VCS R\u0026D",
                          "websiteURL":  "https://github.com/markskinner92/arduino-microlab",
                          "email":  "markhskinner@gmail.com",
                          "help":  {
@@ -12,10 +12,10 @@
                                            {
                                                "category":  "Raspberry Pi Pico",
                                                "name":  "ISS300",
-                                               "url":  "https://github.com/MarkSkinner92/arduino-microlab/releases/download/1.1.0/microlab-1.1.0.zip",
-                                               "version":  "1.1.0",
+                                               "url":  "https://github.com/MarkSkinner92/arduino-microlab/releases/download/1.2.0/microlab-1.2.0.zip",
+                                               "version":  "1.2.0",
                                                "architecture":  "rp2040",
-                                               "archiveFileName":  "microlab-1.1.0.zip",
+                                               "archiveFileName":  "microlab-1.2.0.zip",
                                                "boards":  [
                                                               {
                                                                   "name":  "MicroLab"
@@ -61,8 +61,8 @@
                                                "help":  {
                                                             "online":  ""
                                                         },
-                                               "size":  "110033329",
-                                               "checksum":  "SHA-256:f385cbebe1653a8e513d465d0de04a1b46fa9450f59236d9ad9d39255eb812ec"
+                                               "size":  "119000",
+                                               "checksum":  "SHA-256:8b53773c494e936e5f01073c9240bc68477f555cf822159b6c8b9f823fdcb49f"
                                            }
                                        ],
                          "tools":  [
