@@ -12,10 +12,10 @@
                                            {
                                                "category":  "Raspberry Pi Pico",
                                                "name":  "ISS300",
-                                               "url":  "https://github.com/MarkSkinner92/arduino-microlab/releases/download/1.2.0/microlab-1.2.0.zip",
-                                               "version":  "1.2.0",
+                                               "url":  "https://github.com/MarkSkinner92/arduino-microlab/releases/download/1.3.0/microlab-1.3.0.zip",
+                                               "version":  "1.3.0",
                                                "architecture":  "rp2040",
-                                               "archiveFileName":  "microlab-1.2.0.zip",
+                                               "archiveFileName":  "microlab-1.3.0.zip",
                                                "boards":  [
                                                               {
                                                                   "name":  "MicroLab"
@@ -61,8 +61,8 @@
                                                "help":  {
                                                             "online":  ""
                                                         },
-                                               "size":  "119000",
-                                               "checksum":  "SHA-256:8b53773c494e936e5f01073c9240bc68477f555cf822159b6c8b9f823fdcb49f"
+                                               "size":  "108444552",
+                                               "checksum":  "SHA-256:8ef8b800f869419988dd84fd606099485383d2071dd9830cd016f165c45af571"
                                            }
                                        ],
                          "tools":  [
